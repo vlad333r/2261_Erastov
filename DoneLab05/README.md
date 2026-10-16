@@ -223,26 +223,6 @@ for i in range(20):
 ```
 *В отчете требуется привести вычисления для оценки погрешности.*
 
-### Ответ:
-
-При росте y теряются младшие разряды x при сложении.
-
-```python
-x = 1 / 3
-y = 1
-for i in range(20):
-    print((x + y) - y)
-    y *= 10
-```
-
-При порядке суммы погрешность не больше 2^−55 + 2^(p−53).
-
-```text
-y = 10^12: p = 39, ошибка ≤ 6.11·10^−5, ответ ≈ 0.333374.
-y = 10^15: ответ 0.375.
-y ≥ 10^16: шаг сетки ≥ 2, прибавка 1/3 теряется, ответ 0.
-```
-
 
 
 
@@ -266,8 +246,7 @@ std::cout << std::fixed << s << std::endl;
 #include <iostream>
 
 int main() {
-    int n;
-    std::cin >> n;
+    int n = 1024;
     double s = std::pow(2, n);
     std::cout << std::fixed << s << '\n';
 }
@@ -279,7 +258,7 @@ int main() {
 long double s = std::pow(2.0L, n);
 ```
 
-Для 80-битного long double граница - n = 16384. Если он совпадает с double - 1024.
+Для 80-битного long double граница - n = 16384
 
 
 
@@ -298,10 +277,10 @@ if (s != s)
 
 ```cpp
 #include <iostream>
-#include <limits>
+#include <cmath>
 
 int main() {
-    double s = std::numeric_limits<double>::quiet_NaN();
+    double s = NAN;
     if (s != s)
         std::cout << "yes\n";
 }
