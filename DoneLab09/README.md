@@ -128,13 +128,10 @@ hello   ,   world ,   and ,   goodbye
 ### Ответ:
 
 ```python
-print(
-    *map(
-        len,
-        map(str.strip, input().split(','))
-    ),
-    sep=', '
-)
+print(*map(len,
+           map(str.strip, input().split(','))
+           ),
+      sep = ', ')
 ```
 
 Данные проходят через несколько функций. Читаем выражение изнутри наружу:
