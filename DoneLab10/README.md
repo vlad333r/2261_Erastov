@@ -36,6 +36,7 @@ std::cout << a << ' ' << b << '\n';
 ```
 
 После `p=q` получится 10 20, после `*p=*q` получится 20 20.
+
 <img width="453" height="188" alt="image" src="https://github.com/user-attachments/assets/51e873d4-8f56-4d06-8f5b-5a366557deed" />
 
 
