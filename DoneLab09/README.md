@@ -47,6 +47,14 @@ print (*l, **d)
 >>> sublist(lst, 0, 1, 2, 3, 4, 5)
 ['Anna', 'Barbara', 'Clara', 'Diana', 'Eva', 'Flora']
 ```
+### Ответ:
+
+```python
+def sublist(list, *nums):
+    return [list[i] for i in nums]
+```
+
+`*nums` собирает все переданные номера. Берем элементы в указанном порядке. Если номеров нет, получится пустой список.
 
 ### Задание 3 **(1)**
 
