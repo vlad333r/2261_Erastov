@@ -89,6 +89,61 @@ dosome({1, 2, 3});
 
 *В отчет запишите программу и скриншот ее работы.*
 
+### Ответ:
+
+```cpp
+#include <iostream>
+
+int G1[128], G2[128];
+
+void foo(void) {
+    int L1[128] = {0}, L2[128] = {0};
+    static int S1[128] = {0}, S2[128] = {0};
+    int *H1 = new int[128];
+    int *H2 = new int[128];
+
+    std::cout << "global 1 " << &G1[0] << ' ' << &G1[127] << std::endl;
+    std::cout << "global 2 " << &G2[0] << ' ' << &G2[127] << std::endl;
+    std::cout << "local 1  " << &L1[0] << ' ' << &L1[127] << std::endl;
+    std::cout << "local 2  " << &L2[0] << ' ' << &L2[127] << std::endl;
+    std::cout << "static 1 " << &S1[0] << ' ' << &S1[127] << std::endl;
+    std::cout << "static 2 " << &S2[0] << ' ' << &S2[127] << std::endl;
+    std::cout << "in heap 1 " << &H1[0] << ' ' << &H1[127] << std::endl;
+    std::cout << "in heap 2 " << &H2[0] << ' ' << &H2[127] << std::endl;
+
+    delete[] H1;
+    delete[] H2;
+
+    int s = 0;
+    for (int i = 0; i < 128; i++) {
+        s += S1[i];
+        S1[i] += 1;
+    }
+    std::cout << "Sum static = " << s << std::endl;
+
+    s = 0;
+    for (int i = 0; i < 128; i++) {
+        s += L1[i];
+        L1[i] += 1;
+    }
+    std::cout << "Sum local = " << s << std::endl;
+}
+
+int main() {
+    foo();
+    foo();
+    return 0;
+}
+```
+Вывод
+<img width="467" height="520" alt="image" src="https://github.com/user-attachments/assets/0b8825bf-9e4b-48ea-8653-f3413e5eb8ff" />
+
+В каждом массиве числа лежат подряд. Если int занимает 4 байта, весь массив занимает 512 байт, а между первым и последним адресом 508 байт. Отдельные массивы могут лежать далеко друг от друга.
+
+G и S хранятся всю работу программы, L создаются на стеке при вызове foo, H выделяются в куче и удаляются через delete[]. S1 сохраняет изменения, поэтому суммы 0 и 128. L1 каждый раз заполняется нулями, поэтому суммы 0 и 0.
+
+
+
 ### Задание 5 **(2)**
 
 *Приведенная ниже программа вызывает ошибку. Почему?*
