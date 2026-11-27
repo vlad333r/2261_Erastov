@@ -216,6 +216,17 @@ print(r)
 
 *Проверьте работоспособность функции.*
 
+### Ответ:
+
+```python
+r = Rectangle(Point(0, 10), Point(10, 0))
+Rectangle.square = lambda self: abs((self.topleft.x - self.bottomright.x) *
+                                    (self.topleft.y - self.bottomright.y))
+print(r.square())
+```
+
+Добавляем square в класс через lambda уже после создания r. Площадь это ширина на высоту, abs убирает минус. Получается 10 * 10 = 100.
+
 ### Задание 10 **(2)**
 
 *Добавьте в программу класс* **Segment** *с двумя полями типа*
