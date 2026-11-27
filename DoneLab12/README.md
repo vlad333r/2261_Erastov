@@ -31,7 +31,8 @@ private скрывает поля. После двоеточия констру�
 box a(10, 6, 3);
 std::cout << sizeof(a) << std::endl;
 ```
-<img width="629" height="168" alt="Снимок экрана 2026-11-27 141126" src="https://github.com/user-attachments/assets/96331ff0-78a2-472a-9ef9-223b10458bac" />
+<img width="634" height="199" alt="image" src="https://github.com/user-attachments/assets/793a0fe1-ab60-4b58-8b10-c5609c960c47" />
+
 
 Получилось 24 байта: три поля double по 8 байт, то есть 8 + 8 + 8 = 24. Сами числа в полях на размер не влияют.
 
