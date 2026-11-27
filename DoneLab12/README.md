@@ -9,6 +9,32 @@
 конструктор. Найдите размер одного объекта этого класса с
 использованием* **sizeof**.
 
+
+### Ответ:
+
+```cpp
+class box {
+private:
+    double length;
+    double width;
+    double height;
+public:
+    box(double _length, double _width, double _height):
+        length(_length), width(_width), height(_height) {
+    }
+};
+```
+
+private скрывает поля. После двоеточия конструктор сразу задает их значения: length(_length), width(_width), height(_height).
+
+```cpp
+box a(10, 6, 3);
+std::cout << sizeof(a) << std::endl;
+```
+<img width="629" height="168" alt="Снимок экрана 2026-11-27 141126" src="https://github.com/user-attachments/assets/96331ff0-78a2-472a-9ef9-223b10458bac" />
+
+Получилось 24 байта: три поля double по 8 байт, то есть 8 + 8 + 8 = 24. Сами числа в полях на размер не влияют.
+
 ### Задание 2 **(2)**
 
 *Добавьте в класс методы для вычисления объема коробки и
