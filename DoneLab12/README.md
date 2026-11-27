@@ -42,6 +42,33 @@ std::cout << sizeof(a) << std::endl;
 работу методов. Проверьте, изменился ли размер одного объекта этого
 класса. Объясните результат*
 
+### Ответ:
+
+В public объявляем методы:
+
+```cpp
+double volume();
+double surface();
+```
+
+После класса пишем их код:
+
+```cpp
+double box::volume() {
+    return length * width * height;
+}
+
+double box::surface() {
+    return 2 * (length * width + length * height + width * height);
+}
+```
+
+Для площади складываем площади трех граней и умножаем на 2.
+Объем получился 180, площадь 216. Размер остался 24 байта, потому что методы не хранятся внутри объекта. В нем остались те же три поля double.
+
+<img width="634" height="199" alt="image" src="https://github.com/user-
+attachments/assets/d2387160-89f2-4edb-8c84-03ffbeae2722" />
+
 ### Задание 3 **(2)**
 
 *Создайте два объекта* **x** *и* **y** *класса* **box** *в куче. Напишите
