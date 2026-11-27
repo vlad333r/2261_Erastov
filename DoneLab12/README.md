@@ -66,9 +66,8 @@ double box::surface() {
 
 Для площади складываем площади трех граней и умножаем на 2.
 Объем получился 180, площадь 216. Размер остался 24 байта, потому что методы не хранятся внутри объекта. В нем остались те же три поля double.
+<img width="634" height="199" alt="Снимок экрана 2026-11-27 142901" src="https://github.com/user-attachments/assets/855650b0-8479-4923-b5bd-0c707a95c12e" />
 
-<img width="634" height="199" alt="image" src="https://github.com/user-
-attachments/assets/d2387160-89f2-4edb-8c84-03ffbeae2722" />
 
 ### Задание 3 **(2)**
 
