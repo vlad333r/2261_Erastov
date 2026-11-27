@@ -87,7 +87,6 @@ if (y->volume() > x->volume()) {
     std::cout << "Volume x greater than or equal to volume y" << std::endl;
 }
 std::cout << "Sum volume = " << x->volume() + y->volume() << std::endl;
-std::cout << "Sum surface = " << x->surface() + y->surface() << std::endl;
 delete x;
 delete y;
 ```
