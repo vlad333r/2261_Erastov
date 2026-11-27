@@ -191,6 +191,23 @@ print(a)
 
 Напишите программу для проверки работы методов.*
 
+### Ответ:
+
+```python
+class Rectangle:
+    def __init__(self, a, b):
+        self.topleft = a
+        self.bottonright = b
+
+    def __str__(self):
+        return '|' + str(self.topleft) + '-' + str(self.bottonright) + '|'
+
+r = Rectangle(Point(0, 10), Point(10, 0))
+print(r)
+```
+
+Сохраняем два угла в topleft и bottonright. __str__ делает строку из этих точек. Вывод: |(0, 10)-(10, 0)|.
+
 ### Задание 9 **(2)**
 
 *Добавьте в класс функцию для вычисления площади
