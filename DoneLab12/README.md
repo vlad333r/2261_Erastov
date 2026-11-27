@@ -76,6 +76,24 @@ double box::surface() {
 оба объекта. Не забывайте, что объекты созданные в куче следует
 освобождать.*
 
+### Ответ:
+
+```cpp
+box *x = new box(10, 6, 3);
+box *y = new box(8, 8, 8);
+if (y->volume() > x->volume()) {
+    std::cout << "Volume y greater than volume x" << std::endl;
+} else {
+    std::cout << "Volume x greater than or equal to volume y" << std::endl;
+}
+std::cout << "Sum volume = " << x->volume() + y->volume() << std::endl;
+std::cout << "Sum surface = " << x->surface() + y->surface() << std::endl;
+delete x;
+delete y;
+```
+
+x и y хранят адреса объектов. Через -> обращаемся к их методам и открытым полям. Скрытые поля напрямую недоступны. Объем y больше: 512 против 180. В конце delete x и delete y освобождают память, выделенную через new.
+
 
 ### Задание 4 **(2)**
 
